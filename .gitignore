@@ -81,3 +81,9 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/pycharm
+
+# PyInstaller files
+dist/
+build/
+tool.spec
+__pycache__/
