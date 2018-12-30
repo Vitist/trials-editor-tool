@@ -4,7 +4,7 @@ import shutil
 
 # Get the track folder path from parameters
 trackPath = sys.argv[1]
-
+programPath = os.path.dirname(sys.argv[0])
 # Editor track folders always end with this
 folderEnd = "-0-0000000000000"
 
@@ -16,12 +16,12 @@ trackHeaderSteam = ['ca', 'fe', 'b0', '0b', '09', '00', '00', '00', '2c']
 
 try:
     # Read "key=value" style config file
-    with open("config.txt", "r") as configFile:
+    with open(programPath + "\\config.txt", "r") as configFile:
         userId = configFile.readline().split("=")[1]
         platform = configFile.readline().split("=")[1]
 except FileNotFoundError:
     # No config file found, create it
-    with open("config.txt", "w+") as configFile:
+    with open(programPath + "\\config.txt", "w+") as configFile:
         print("No config file found, running initial setup.")
         # Get user identifier from track folder name
         userId = input("\nCreate a new track in the editor and copy its folder name\n"
