@@ -17,8 +17,9 @@ trackHeaderSteam = ['ca', 'fe', 'b0', '0b', '09', '00', '00', '00', '2c']
 try:
     # Read "key=value" style config file
     with open(programPath + "\\config.txt", "r") as configFile:
-        userId = configFile.readline().split("=")[1]
-        platform = configFile.readline().split("=")[1]
+        lines = configFile.read().splitlines()
+        userId = lines[0].split("=")[1]
+        platform = lines[1].split("=")[1]
 except FileNotFoundError:
     # No config file found, create it
     with open(programPath + "\\config.txt", "w+") as configFile:
